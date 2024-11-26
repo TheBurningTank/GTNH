@@ -237,7 +237,7 @@ function getItems(items)
         local quantity = item.quantity
         local currNumItems = me.getItemsInNetwork({ label = itemLabel })
         --if there is an item that is less than requested, add to shopping cart
-        if currNumItems < item.quantity then
+        if currNumItems[1].size < item.quantity then
             itemsToOrder[itemLabel] = item.quantity - currNumItems
         else
             me.store({label=itemLabel}, db.address, 1)
