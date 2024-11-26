@@ -240,6 +240,7 @@ function getItems(items)
         if currNumItems[1].size < item.quantity then
             itemsToOrder[itemLabel] = item.quantity - currNumItems
         else
+            print("Getting" .. itemLabel)
             me.store({label=itemLabel}, db.address, 1)
             me.requestItems(db.address, 1, quantity)
         end
@@ -250,6 +251,7 @@ function getItems(items)
         for _, item in pairs(items) do
             local itemLabel = item.itemLabel
             local quantity = item.quantity
+            print("Getting crafted" .. itemLabel)
             me.store({label=itemLabel}, db.address, 1)
             me.requestItems(db.address, 1, quantity)
         end
