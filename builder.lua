@@ -241,8 +241,10 @@ function getItems(items)
             itemsToOrder[itemLabel] = item.quantity - currNumItems
         else
             print("Getting" .. itemLabel .. " Quant" .. quantity)
+            db.clear(1)
             me.store({label=itemLabel}, db.address, 1)
             me.requestItems(db.address, 1, quantity)
+            storeEnderChest(1)
         end
     end
 
@@ -255,6 +257,7 @@ function getItems(items)
             db.clear(1)
             me.store({label=itemLabel}, db.address, 1)
             me.requestItems(db.address, 1, quantity)
+            storeEnderChest(1)
         end
     end
 end
