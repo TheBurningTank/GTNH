@@ -252,6 +252,7 @@ function getItems(items)
             local itemLabel = item.itemLabel
             local quantity = item.quantity
             print("Getting crafted" .. itemLabel .. " Quant" .. quantity)
+            db.clear(1)
             me.store({label=itemLabel}, db.address, 1)
             me.requestItems(db.address, 1, quantity)
         end
